@@ -9,4 +9,8 @@ public class Personnage {
 		this.pa=pa;
 		
 	}
+	
+	public String toString() {
+		return "O";
+	}
 }

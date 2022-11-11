@@ -11,7 +11,7 @@ public abstract class Case extends JPanel {
 	public int y;
 	public static final int VIDE = 2;
 	public static final int MUR = 1;
-	public static final int PERSO = 3;
+//	public static final int PERSO = 3;
 	public static final int TRESOR = 4;
 	public static final int PORTE = 5;
 
@@ -32,8 +32,8 @@ public abstract class Case extends JPanel {
 			return new CaseVide(_x, _y);
 		else if(TYPE==MUR)
 			return new CaseMur( _x, _y);
-		else if(TYPE==PERSO)
-			return new CasePerso(_x, _y);
+//		else if(TYPE==PERSO)
+//			return new CasePerso(_x, _y);
 		else if(TYPE==TRESOR)
 			return new CaseTresor( _x, _y);
 		else if(TYPE==PORTE)
@@ -41,26 +41,5 @@ public abstract class Case extends JPanel {
 		else return new CaseVide(_x, _y);
 	}
 
-	public static Case[][] readCaseFile(String filename) {
-		Path path;
-		Case tabCase[][] = null;
-
-		try {
-			path = Paths.get(filename);
-			List<String> lines = Files.readAllLines(path);
-			int numberLine = lines.size();
-			int sizeLine = lines.get(0).length();
-
-			tabCase = new Case[numberLine][sizeLine];
-			int i,j;
-
-			for(i=0; i<numberLine; i++)
-				for(j=0; j<sizeLine; j++)
-				{
-					tabCase[i][j] = Case.createCase(Integer.parseInt(new String(lines.get(i).substring(j,j+1))),i,j); 
-				}
-		}catch(Exception e) {e.printStackTrace();}
-
-		return tabCase;
-	}
+	
 }

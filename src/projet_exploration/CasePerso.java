@@ -3,13 +3,14 @@ package projet_exploration;
 import java.awt.*;
 
 class CasePerso extends Case {
-    int pv=1;
+    public int pv=1;
+    private Personnage p;
 
     public CasePerso(int _x, int _y) {
         super(_x, _y);
     }
 
-    public String toString() { return String.format("O"); }
+    public String toString() { return this.p.toString(); }
 
     @Override
     public void paintComponent(Graphics g) {
