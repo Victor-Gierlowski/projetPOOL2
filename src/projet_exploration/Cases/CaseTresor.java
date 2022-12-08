@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import javax.swing.ImageIcon;
+
 
 class CaseTresor extends Case {
 	int valeur=1;
 
 	public CaseTresor(int _x, int _y) {
 		super(_x, _y);
+		this.img = new ImageIcon("img/tresor.png").getImage();
 	}
 
 	public String toString() { return String.format("T"); }
@@ -23,8 +26,10 @@ class CaseTresor extends Case {
 	// }
 	public void dessine(Graphics2D g) {
         // Graphics2D g2 = (Graphics2D) g;
-        g.setColor(Color.YELLOW);
-		super.dessine(g);
+//        g.setColor(Color.YELLOW);
+//		super.dessine(g);
+		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
+	
 		// g2.fillRect(this.x*this.size, this.y*this.size, this.size, this.size);
 	}
 }

@@ -2,10 +2,13 @@ package projet_exploration.Cases;
 
 import java.awt.*;
 
+import javax.swing.ImageIcon;
+
 class CaseVide extends Case {
 
 	public CaseVide(int _x, int _y) {
 		super(_x, _y);
+		this.img = new ImageIcon("img/vide.png").getImage();
 	}
 
 	public String toString() { return String.format(" "); }
@@ -19,8 +22,9 @@ class CaseVide extends Case {
 	// }
 	public void dessine(Graphics2D g) {
         // Graphics2D g2 = (Graphics2D) g;
-        g.setColor(Color.WHITE);
-		super.dessine(g);
+        //g.setColor(Color.WHITE);
+		//super.dessine(g);
 		// g2.fillRect(this.x*this.size, this.y*this.size, this.size, this.size);
+		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
 	}
 }

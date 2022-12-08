@@ -12,7 +12,7 @@ public class Game {
 		Grille G;
 		UI affichage = new UI();
 		Fenetre frame = new Fenetre("notre jeu");
-		frame.setSize(800,800);
+		frame.setSize(825,850);
 		frame.setLocation(300,300);
 		frame.G = Grille.readGrilleFile("level1.txt");
 		affichage.map = frame.G.map;
