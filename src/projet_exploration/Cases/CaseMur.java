@@ -1,8 +1,7 @@
 package projet_exploration.Cases;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
+import java.awt.*;
+// import javax.swing.JPanel;
 
 
 class CaseMur extends Case {
@@ -14,12 +13,8 @@ class CaseMur extends Case {
 
 	public String toString() { return String.format("M"); }
 
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
-		this.add(panel);
-		this.setVisible(true);
+	public void dessine(Graphics2D g) {
+        g.setColor(Color.RED);
+		super.dessine(g);
 	}
 }

@@ -35,4 +35,11 @@ public class Grille {
 
 		return G;
 	}
+
+	public int getWidth(){
+		return this.map[0].length;
+	}
+	public int getHeight(){
+		return this.map.length;
+	}
 }

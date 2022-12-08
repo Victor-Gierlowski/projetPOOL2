@@ -7,6 +7,7 @@ public abstract class Case extends JPanel {
 	
 	public int x;
 	public int y;
+	public static int size;
 	public static final int VIDE = 2;
 	public static final int MUR = 1;
 //	public static final int PERSO = 3;
@@ -17,6 +18,7 @@ public abstract class Case extends JPanel {
 		super();
 		this.x=_x;
 		this.y=_y;
+		this.size = 100;
 		setPreferredSize(new Dimension(100, 100));
 	}
 
@@ -37,6 +39,11 @@ public abstract class Case extends JPanel {
 		else if(TYPE==PORTE)
 			return new CasePorte(_x, _y);
 		else return new CaseVide(_x, _y);
+	}
+
+	public void dessine(Graphics2D g) {
+		g.fillRect( this.y*size,this.x*size, size,size);
+		// g.fillOval(this.y*size, this.x*size,size, size/2);
 	}
 
 	
