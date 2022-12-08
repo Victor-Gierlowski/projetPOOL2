@@ -7,7 +7,8 @@ public abstract class Case extends JPanel {
 	
 	public int x;
 	public int y;
-	public static int size;
+	public Image img;
+	public static int size = 160;
 	public static final int VIDE = 2;
 	public static final int MUR = 1;
 //	public static final int PERSO = 3;
@@ -18,7 +19,6 @@ public abstract class Case extends JPanel {
 		super();
 		this.x=_x;
 		this.y=_y;
-		this.size = 160;
 		setPreferredSize(new Dimension(160, 160));
 	}
 

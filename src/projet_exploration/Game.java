@@ -20,13 +20,13 @@ public class Game {
 		int i,j;
 
 
-		// for(i=0; i<G.map.length; i++) {
-		// 	for(j=0; j<G.map[0].length; j++) {
-		// 		System.out.print( G.map[i][j].toString() );
-		// 		// frame.add(G.map[i][j]);
-		// 	}
-		// 	System.out.println();
-		// }
+		for(i=0; i<frame.G.map.length; i++) {
+			for(j=0; j<frame.G.map[0].length; j++) {
+				System.out.print(frame. G.map[i][j].toString() );
+				// frame.add(G.map[i][j]);
+			}
+			System.out.println();
+		}
 		frame.setVisible(true);
 
 	}

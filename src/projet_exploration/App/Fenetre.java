@@ -12,9 +12,6 @@ public class Fenetre extends JFrame implements KeyListener{
     @Override
     public void keyPressed(KeyEvent arg0) {
         // TODO Auto-generated method stub
-        this.G.map[0][0].x ++;
-        UI a = (UI)(this.getComponents()[0]);
-        a.map = this.G.map;
     }
 
     @Override
