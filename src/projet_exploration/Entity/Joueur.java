@@ -7,7 +7,6 @@ public class Joueur extends Personnage {
 	
 	public Joueur(int pv, int pa) {
 		super(pv, pa);
-		// TODO Auto-generated constructor stub
 	}
 	
 

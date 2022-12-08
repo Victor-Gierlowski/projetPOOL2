@@ -6,11 +6,11 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import projet_exploration.Cases.Case;
-import projet_exploration.Entity.Personnage;
+//import projet_exploration.Entity.Personnage;
 
 public class Grille {
 	public Case[][] map = null;
-	private Personnage Perso[]; 
+	//private Personnage Perso[]; 
 	
 	
 	public static Grille readGrilleFile(String filename) {
