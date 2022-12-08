@@ -1,4 +1,4 @@
-package projet_exploration;
+package projet_exploration.Entity;
 
 public class Personnage {
 	public int pv;

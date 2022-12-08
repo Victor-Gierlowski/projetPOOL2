@@ -1,4 +1,4 @@
-package projet_exploration;
+package projet_exploration.Cases;
 
 import java.awt.*;
 

@@ -1,5 +1,6 @@
 package projet_exploration;
 
+import projet_exploration.App.Grille;
 
 public class Game {
 

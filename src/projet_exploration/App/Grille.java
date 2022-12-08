@@ -1,9 +1,12 @@
-package projet_exploration;
+package projet_exploration.App;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+
+import projet_exploration.Cases.Case;
+import projet_exploration.Entity.Personnage;
 
 public class Grille {
 	public Case[][] map = null;

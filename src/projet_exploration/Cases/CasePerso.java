@@ -1,6 +1,8 @@
-package projet_exploration;
+package projet_exploration.Cases;
 
 import java.awt.*;
+
+import projet_exploration.Entity.Personnage;
 
 class CasePerso extends Case {
     public int pv=1;

@@ -1,7 +1,5 @@
-package projet_exploration;
+package projet_exploration.Cases;
 
-import java.util.List;
-import java.nio.file.*;
 import javax.swing.*;
 import java.awt.*;
 
