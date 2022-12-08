@@ -18,8 +18,8 @@ public abstract class Case extends JPanel {
 		super();
 		this.x=_x;
 		this.y=_y;
-		this.size = 100;
-		setPreferredSize(new Dimension(100, 100));
+		this.size = 160;
+		setPreferredSize(new Dimension(160, 160));
 	}
 
 	public int getX() { return this.x; }
@@ -42,6 +42,7 @@ public abstract class Case extends JPanel {
 	}
 
 	public void dessine(Graphics2D g) {
+		
 		g.fillRect( this.y*size,this.x*size, size,size);
 		// g.fillOval(this.y*size, this.x*size,size, size/2);
 	}
