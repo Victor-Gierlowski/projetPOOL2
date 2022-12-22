@@ -9,10 +9,10 @@ import projet_exploration.App.Grille;
 public class Game {
 
 	public static void main(String[] args) {
-		Grille G;
+		//Grille G; pas besoin car dans UI;
 		UI affichage = new UI();
 		Fenetre frame = new Fenetre("notre jeu");
-		frame.setSize(825,850);
+		frame.setSize(1200,1200);
 		frame.setLocation(300,300);
 		frame.G = Grille.readGrilleFile("level1.txt");
 		affichage.map = frame.G.map;

@@ -11,7 +11,7 @@ public abstract class Case extends JPanel {
 	public static int size = 160;
 	public static final int VIDE = 2;
 	public static final int MUR = 1;
-//	public static final int PERSO = 3;
+	public static final int PERSO = 3;
 	public static final int TRESOR = 4;
 	public static final int PORTE = 5;
 
@@ -32,8 +32,8 @@ public abstract class Case extends JPanel {
 			return new CaseVide(_x, _y);
 		else if(TYPE==MUR)
 			return new CaseMur( _x, _y);
-//		else if(TYPE==PERSO)
-//			return new CasePerso(_x, _y);
+		else if(TYPE==PERSO)
+			return new CasePerso(_x, _y);
 		else if(TYPE==TRESOR)
 			return new CaseTresor( _x, _y);
 		else if(TYPE==PORTE)
