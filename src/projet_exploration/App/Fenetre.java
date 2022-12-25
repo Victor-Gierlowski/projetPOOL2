@@ -7,19 +7,19 @@ import javax.swing.JPanel;
 
 public class Fenetre extends JFrame implements KeyListener{
     public Grille G;
+    public Grille Grille_personnage;
     
-    JPanel panel;  
+    public JPanel panel;  
  
     public Fenetre(String str){
         super(str);
         
-        panel= new JPanel();
-        panel.setSize(300,300);
-        panel.setBackground(Color.red);
-        panel.setOpaque(true);
-        
-        this.add(panel);
-        this.setVisible(true);
+//        panel= new JPanel();
+//        panel.setSize(300,300);
+//        panel.setBackground(Color.red);
+//        panel.setOpaque(true);
+//        this.add(panel); 
+//        this.setVisible(true);
         
     }
 

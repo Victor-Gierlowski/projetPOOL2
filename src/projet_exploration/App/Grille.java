@@ -12,29 +12,52 @@ public class Grille {
 	public Case[][] map = null;
 	//private Personnage Perso[]; 
 	
-	
-	public static Grille readGrilleFile(String filename) {
-		Grille G = new Grille();
-		Path path;
-
+	public Grille(int x,int y) {
 		try {
-			path = Paths.get(filename);
-			List<String> lines = Files.readAllLines(path);
-			int numberLine = lines.size()-1;
-			int sizeLine = lines.get(1).length();
+			int numberLine = x;
+			int sizeLine = y;
 
-			G.map = new Case[numberLine][sizeLine];
+			this.map = new Case[numberLine][sizeLine];
 			int i,j;
 
 			for(i=0; i<numberLine; i++)
 				for(j=0; j<sizeLine; j++)
 				{
-					G.map[i][j] = Case.createCase(Integer.parseInt(new String(lines.get(i).substring(j,j+1))),i,j); 
+					this.map[i][j]=null;
 				}
-		}catch(Exception e) {e.printStackTrace();}
-
-		return G;
+			
+			
+		}catch(Exception e) {e.printStackTrace();
+		
+		}
 	}
+	public Grille (String filename) {
+		Path path;
+
+		try {
+			path = Paths.get(filename);
+			List<String> lines = Files.readAllLines(path);
+			int numberLine = lines.size(); //yavais -1
+			int sizeLine = lines.get(1).length();
+
+			this.map = new Case[numberLine][sizeLine];
+			int i,j;
+
+			for(i=0; i<numberLine; i++)
+				for(j=0; j<sizeLine; j++)
+				{
+					this.map[i][j] = Case.createCase(Integer.parseInt(new String(lines.get(i).substring(j,j+1))),i,j); 
+				}
+		}catch(Exception e) {e.printStackTrace();
+		
+		}
+		
+	}
+			
+		
+	
+	
+	
 
 	public int getWidth(){
 		return this.map[0].length;

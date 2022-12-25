@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 
 import projet_exploration.Entity.Personnage;
 
-class CasePerso extends Case {
+public class CasePerso extends Case { //j ai add public ici
     public int pv=1;
     private Personnage p;
 
