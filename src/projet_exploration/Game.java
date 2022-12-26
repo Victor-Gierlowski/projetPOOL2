@@ -31,10 +31,12 @@ public class Game {
         ok.setIcon(perso);
         // ajoute le perso
         //affichage.add(ok);
-        frame.Grille_personnage.map[1][1]=perso1;
+        //frame.Grille_personnage.map[1][1]=perso1;
         
         //ET LA çA MERDE ... 
-     
+        affichage.add(perso1);
+        
+        //en bref il manque juste l image mdr mais chuis perdu
 
         frame.add(affichage);
         
