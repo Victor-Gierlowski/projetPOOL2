@@ -7,13 +7,14 @@ import javax.swing.JPanel;
 
 public class Fenetre extends JFrame implements KeyListener{
     public Grille G;
+    public UI affichage;
     public Grille Grille_personnage;
     
     public JPanel panel;  
  
     public Fenetre(String str){
         super(str);
-        
+        this.addKeyListener(this);
 //        panel= new JPanel();
 //        panel.setSize(300,300);
 //        panel.setBackground(Color.red);
@@ -24,7 +25,7 @@ public class Fenetre extends JFrame implements KeyListener{
     }
 
     @Override
-    public void keyPressed(KeyEvent arg0) {
+    public void keyTyped(KeyEvent arg0) {
         // TODO Auto-generated method stub
     }
 
@@ -35,18 +36,20 @@ public class Fenetre extends JFrame implements KeyListener{
     }
 
     @Override
-    public void keyTyped(KeyEvent arg0) {
+    public void keyPressed(KeyEvent arg0) {
+    	System.out.println(arg0);
+    	System.out.println(String.format("%d %d", affichage.Persos.get(0).x,affichage.Persos.get(0).y));
         switch(arg0.getKeyChar()) {
-        case 'q': panel.setLocation(panel.getX()-300,panel.getY());
-        	break;
-        case'z': panel.setLocation(panel.getX(),panel.getY()-300);
+        case 'q':
+        	this.affichage.Persos.get(0).y--;
+        break;
+        case'z': this.affichage.Persos.get(0).x--;
     		break;
-        case's':panel.setLocation(panel.getX(),panel.getY()+300);
+        case's':this.affichage.Persos.get(0).x++;
     		break;
-        case'd': panel.setLocation(panel.getX()+300,panel.getY());
+        case'd': this.affichage.Persos.get(0).y++;
     		break;
-        
         }
-        
+        affichage.repaint();
     }
 }
