@@ -4,11 +4,14 @@ import java.awt.*;
 
 import javax.swing.ImageIcon;
 
-class CaseVide extends Case {
+import projet_exploration.App.Evenement;
+
+public class CaseVide extends Case {
 
 	public CaseVide(int _x, int _y) {
 		super(_x, _y);
 		this.img = new ImageIcon("img/vide.png").getImage();
+		this.movable = true;
 	}
 
 	public String toString() { return String.format(" "); }
@@ -26,5 +29,11 @@ class CaseVide extends Case {
 		//super.dessine(g);
 		// g2.fillRect(this.x*this.size, this.y*this.size, this.size, this.size);
 		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
+	}
+
+	@Override
+	public Evenement playerOnCase() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

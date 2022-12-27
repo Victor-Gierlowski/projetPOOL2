@@ -5,8 +5,10 @@ import java.awt.*;
 import javax.swing.*;
 // import javax.swing.JPanel;
 
+import projet_exploration.App.Evenement;
 
-class CaseMur extends Case {
+
+public class CaseMur extends Case {
 
 	public CaseMur(int _x, int _y) {
 		super(_x, _y);
@@ -20,5 +22,11 @@ class CaseMur extends Case {
         // g.setColor(Color.RED);
 		// super.dessine(g);
 		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
+	}
+
+	@Override
+	public Evenement playerOnCase() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

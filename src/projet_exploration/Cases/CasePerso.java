@@ -4,14 +4,16 @@ import java.awt.*;
 
 import javax.swing.ImageIcon;
 
+import projet_exploration.App.Evenement;
 import projet_exploration.Entity.Personnage;
 
 public class CasePerso extends Case { //j ai add public ici
     public int pv=1;
     private Personnage p;
 
-    public CasePerso(int _x, int _y) {
+    public CasePerso(int _x, int _y, Personnage _p) {
         super(_x, _y);
+        this.p = _p;
         this.img = new ImageIcon("img/personnage1.png").getImage();
     }
 
@@ -29,5 +31,19 @@ public class CasePerso extends Case { //j ai add public ici
         //super.dessine(g);
         g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
 		//g2.fillRect(this.x*this.size, this.y*this.size, this.size, this.size);
+	}
+
+	public Personnage getP() {
+		return p;
+	}
+
+	public void setP(Personnage p) {
+		this.p = p;
+	}
+
+	@Override
+	public Evenement playerOnCase() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

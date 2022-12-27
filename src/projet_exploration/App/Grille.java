@@ -1,5 +1,6 @@
 package projet_exploration.App;
 
+import java.awt.Point;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -54,15 +55,15 @@ public class Grille {
 		
 	}
 			
-		
-	
-	
-	
-
 	public int getWidth(){
 		return this.map[0].length;
 	}
 	public int getHeight(){
 		return this.map.length;
+	}
+	public boolean isMovable(Point pos) {
+		if(pos.x < 0 || pos.x > this.getWidth()
+		|| pos.y < 0 || pos.y > this.getHeight()) return false;
+		return (map[pos.x][pos.y].isMovable());
 	}
 }

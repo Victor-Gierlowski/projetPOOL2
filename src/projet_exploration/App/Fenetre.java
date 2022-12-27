@@ -1,15 +1,18 @@
 package projet_exploration.App;
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.event.*;
 import javax.swing.JFrame;
 //import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import projet_exploration.Entity.Joueur;
+
 public class Fenetre extends JFrame implements KeyListener{
     public Grille G;
     public UI affichage;
     public Grille Grille_personnage;
-    
+    public Joueur joueur;
     public JPanel panel;  
  
     public Fenetre(String str){
@@ -37,19 +40,34 @@ public class Fenetre extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent arg0) {
-    	System.out.println(arg0);
-    	System.out.println(String.format("%d %d", affichage.Persos.get(0).x,affichage.Persos.get(0).y));
-        switch(arg0.getKeyChar()) {
+    	Point jPos = affichage.getJoueur().getPos();
+    	switch(arg0.getKeyChar()) {
         case 'q':
-        	this.affichage.Persos.get(0).y--;
-        break;
-        case'z': this.affichage.Persos.get(0).x--;
+        	jPos.translate(0, -1);
+        	if(G.isMovable(jPos))	
+        		affichage.getJoueur().setPos(jPos);
+        	break;
+        case'z':
+        	jPos.translate(-1, 0);
+        	if(G.isMovable(jPos)) 
+        		affichage.getJoueur().setPos(jPos);
+        	break;
+        case's':
+        	jPos.translate(1,0);
+        	if(G.isMovable(jPos))
+        		affichage.getJoueur().setPos(jPos);
     		break;
-        case's':this.affichage.Persos.get(0).x++;
-    		break;
-        case'd': this.affichage.Persos.get(0).y++;
+        case'd':
+        	jPos.translate(0,1);
+        	if(G.isMovable(jPos))
+        		affichage.getJoueur().setPos(jPos);
     		break;
         }
+    	if(G.isMovable(jPos)) {    		
+    		Evenement E = G.map[jPos.x][jPos.y].playerOnCase();
+    		if(E != null)
+    			E.action(this);
+    	}
         affichage.repaint();
     }
 }

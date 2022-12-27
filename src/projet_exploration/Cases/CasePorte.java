@@ -6,11 +6,14 @@ import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
 
+import projet_exploration.App.Evenement;
 
-class CasePorte extends Case {
+
+public class CasePorte extends Case {
 	public CasePorte(int _x, int _y) {
 		super(_x, _y);
 		this.img = new ImageIcon("img/porte.png").getImage();
+		this.movable = true;
 	}
 
 	public String toString() { return String.format("P"); }
@@ -30,5 +33,11 @@ class CasePorte extends Case {
 		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
 	
 		// g2.fillRect(this.x*this.size, this.y*this.size, this.size, this.size);
+	}
+
+	@Override
+	public Evenement playerOnCase() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
