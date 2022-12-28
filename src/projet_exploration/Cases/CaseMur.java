@@ -6,12 +6,12 @@ import javax.swing.*;
 // import javax.swing.JPanel;
 
 import projet_exploration.App.Evenement;
-
+import java.util.List;
 
 public class CaseMur extends Case {
 
-	public CaseMur(int _x, int _y) {
-		super(_x, _y);
+	public CaseMur(int _x, int _y, List<Integer> args) {
+		super(_x, _y, args);
 		// setBackground(Color.GRAY);
 		this.img = new ImageIcon("img/mur.png").getImage();
 	}

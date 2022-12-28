@@ -6,38 +6,37 @@ import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
 
+import Evenements.Ramassage;
+import Evenements.traverser;
 import projet_exploration.App.Evenement;
-
+import java.util.List;
 
 public class CasePorte extends Case {
-	public CasePorte(int _x, int _y) {
-		super(_x, _y);
+	public int niveauCible;
+	public int porteCible;
+	public CasePorte(int _x, int _y, List<Integer> args) {
+		super(_x, _y, args);
+		if(args == null || args.size() != 3) {
+			niveauCible = -1;
+			porteCible = -1;
+		}
+		else {
+			niveauCible = args.get(1);
+			porteCible = args.get(2);
+		}
 		this.img = new ImageIcon("img/porte.png").getImage();
 		this.movable = true;
 	}
 
 	public String toString() { return String.format("P"); }
 
-	// @Override
-	// public void paintComponent(Graphics g) {
-	// 	super.paintComponent(g);
-    //     Graphics2D g2 = (Graphics2D) g;
-	// 	g2.setColor(Color.ORANGE);
-	// 	g2.fillRect(0,0,getWidth(),getHeight()); 
-	// }
-
 	public void dessine(Graphics2D g) {
-        // Graphics2D g2 = (Graphics2D) g;
-//        g.setColor(Color.ORANGE);
-//		super.dessine(g);
 		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
-	
-		// g2.fillRect(this.x*this.size, this.y*this.size, this.size, this.size);
 	}
 
 	@Override
 	public Evenement playerOnCase() {
 		// TODO Auto-generated method stub
-		return null;
+		return new traverser(this);
 	}
 }

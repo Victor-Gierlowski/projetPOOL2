@@ -5,11 +5,11 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 
 import projet_exploration.App.Evenement;
-
+import java.util.List;
 public class CaseVide extends Case {
 
-	public CaseVide(int _x, int _y) {
-		super(_x, _y);
+	public CaseVide(int _x, int _y, List<Integer> args) {
+		super(_x, _y, args);
 		this.img = new ImageIcon("img/vide.png").getImage();
 		this.movable = true;
 	}

@@ -11,13 +11,15 @@ import projet_exploration.Entity.Joueur;
 public class Fenetre extends JFrame implements KeyListener{
     public Grille G;
     public UI affichage;
-    public Grille Grille_personnage;
     public Joueur joueur;
     public JPanel panel;  
+    
+    public Game master;
  
-    public Fenetre(String str){
+    public Fenetre(String str, Game m){
         super(str);
         this.addKeyListener(this);
+        this.master = m;
 //        panel= new JPanel();
 //        panel.setSize(300,300);
 //        panel.setBackground(Color.red);
@@ -66,7 +68,7 @@ public class Fenetre extends JFrame implements KeyListener{
     	if(G.isMovable(jPos)) {    		
     		Evenement E = G.map[jPos.x][jPos.y].playerOnCase();
     		if(E != null)
-    			E.action(this);
+    			E.action(master);
     	}
         affichage.repaint();
     }

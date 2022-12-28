@@ -12,7 +12,7 @@ public class CasePerso extends Case { //j ai add public ici
     private Personnage p;
 
     public CasePerso(int _x, int _y, Personnage _p) {
-        super(_x, _y);
+        super(_x, _y,null);
         this.p = _p;
         this.img = new ImageIcon("img/personnage1.png").getImage();
     }

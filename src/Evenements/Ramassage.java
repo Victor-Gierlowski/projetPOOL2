@@ -13,11 +13,11 @@ public class Ramassage extends Evenement{
 	}
 
 	@Override
-	public void action(Fenetre F) {
+	public void action(Game master) {
 		// TODO Auto-generated method stub
-		F.joueur.points++;
-		F.affichage.map[this.caller.x][this.caller.y] = new CaseVide(this.caller.x,this.caller.y);
-		System.out.println(String.format("points : %d", F.joueur.points));
+		master.frame.joueur.points++;
+		master.frame.affichage.G.map[this.caller.x][this.caller.y] = new CaseVide(this.caller.x,this.caller.y,null);
+		System.out.println(String.format("points : %d", master.frame.joueur.points));
 	}
 	
 }

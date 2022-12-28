@@ -5,6 +5,7 @@ import javax.swing.*;
 import projet_exploration.App.Evenement;
 
 import java.awt.*;
+import java.util.List;
 
 public abstract class Case extends JPanel {
 	
@@ -19,7 +20,7 @@ public abstract class Case extends JPanel {
 	public static final int TRESOR = 4;
 	public static final int PORTE = 5;
 
-	protected Case(int _x, int _y) {
+	protected Case(int _x, int _y,List<Integer> args) {
 		super();
 		this.x=_x;
 		this.y=_y;
@@ -40,18 +41,18 @@ public abstract class Case extends JPanel {
 	}
 
 	// Type : VIDE = 1, MUR = 2, PERSO = 3, TRESOR = 4, PORTE = 5
-	public static Case createCase(int TYPE, int _x, int _y, int ...b) {
+	public static Case createCase(int TYPE, int _x, int _y, List<Integer>  args) {
 		if(TYPE==VIDE)
-			return new CaseVide(_x, _y);
+			return new CaseVide(_x, _y, args);
 		else if(TYPE==MUR)
-			return new CaseMur( _x, _y);
+			return new CaseMur( _x, _y, args);
 		//else if(TYPE==PERSO)
 			//return new CasePerso(_x, _y);
 		else if(TYPE==TRESOR)
-			return new CaseTresor( _x, _y);
+			return new CaseTresor( _x, _y, args);
 		else if(TYPE==PORTE)
-			return new CasePorte(_x, _y);
-		else return new CaseVide(_x, _y);
+			return new CasePorte(_x, _y, args);
+		else return new CaseVide(_x, _y, args);
 	}
 
 	public void dessine(Graphics2D g) {

@@ -8,5 +8,5 @@ public abstract class Evenement {
 		this.caller = c;
 	}
 	
-	public abstract void action(Fenetre F);
+	public abstract void action(Game master);
 }

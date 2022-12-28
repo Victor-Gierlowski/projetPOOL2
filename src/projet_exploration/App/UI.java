@@ -10,14 +10,14 @@ import java.awt.Point;
 import java.util.List;
 
 public class UI extends JPanel{
-    public Case map[][];
+    public Grille G;
     public List<CasePerso> Persos;
     private Integer joueurIndex;
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        for(int i=0;i<map.length;i++){
-            for(int j =0;j<map[0].length;j++){
-                map[i][j].dessine((Graphics2D)g);
+        for(int i=0;i<G.map.length;i++){
+            for(int j =0;j<G.map[0].length;j++){
+            	G.map[i][j].dessine((Graphics2D)g);
             }
         }
         for(int i=0;i<Persos.size();i++) {

@@ -8,13 +8,13 @@ import javax.swing.ImageIcon;
 
 import Evenements.Ramassage;
 import projet_exploration.App.Evenement;
-
+import java.util.List;
 
 public class CaseTresor extends Case {
 	int valeur=1;
 
-	public CaseTresor(int _x, int _y) {
-		super(_x, _y);
+	public CaseTresor(int _x, int _y, List<Integer> args) {
+		super(_x, _y, args);
 		this.img = new ImageIcon("img/tresor.png").getImage();
 		this.movable = true;
 	}
