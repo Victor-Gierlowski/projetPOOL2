@@ -91,38 +91,7 @@ public class Fenetre extends JFrame implements KeyListener{
 		else {
 			switch(arg0.getKeyChar()) {
 			case 'k':
-				Random random = new Random();
-			    int randomNumber = random.nextInt(6) + 1;
-			    
-			    switch (randomNumber) {
-			      case 1:
-			        System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
-			        this.joueur.pv-=3;
-			        break;
-			      case 2:
-			        System.out.println("2: L'ennemi vous frappe au tibia!");
-			        this.joueur.pv-=2;
-			        break;
-			      case 3:
-			        System.out.println("3: OUF! Tu esquive inextremis!");
-			        break;
-			      case 4:
-			        System.out.println("4: Touché! l'ennemi est atteint.");
-			        this.affichage.ennemieCombat.p.pv-=1;
-			        break;
-			      case 5:
-			        System.out.println("5: Tu frappe l'ennemi de toute tes forces.");
-			        this.affichage.ennemieCombat.p.pv-=3;
-			        break;
-			      case 6:
-			        System.out.println("6: Tu boit une potion");
-			        this.joueur.pv+=3;
-			        break;
-			      default:
-			        System.out.println("Erreur: nombre aléatoire inattendu");
-			        break;
-			    }
-			    
+				this.affichage.combat.lancerDe();
 			    break;
 			}
 		}

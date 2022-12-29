@@ -1,13 +1,15 @@
 package Evenements;
 
+import projet_exploration.App.Combat;
 import projet_exploration.App.Evenement;
 import projet_exploration.App.Game;
 import projet_exploration.Cases.Case;
 import projet_exploration.Cases.CasePerso;
+import projet_exploration.Entity.Monstre;
 
-public class Combat extends Evenement {
+public class CombatEvenement extends Evenement {
 
-	public Combat(Case c) {
+	public CombatEvenement(Case c) {
 		super(c);
 		// TODO Auto-generated constructor stub
 	}
@@ -17,6 +19,7 @@ public class Combat extends Evenement {
 		// TODO Auto-generated method stub
 		master.affichage.modeCombat =true;
 		master.affichage.ennemieCombat = (CasePerso)caller;
+		master.affichage.combat = new Combat(master.joueur,(Monstre)((CasePerso)caller).p);
 	}
 
 }

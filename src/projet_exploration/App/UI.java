@@ -2,11 +2,11 @@ package projet_exploration.App;
 import projet_exploration.Cases.*;
 import projet_exploration.Entity.Joueur;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -22,6 +22,7 @@ public class UI extends JPanel{
     public CasePerso joueur;
     public CasePerso ennemieCombat;
     public boolean modeCombat = false;
+    public Combat combat;
     
     private Font f = new Font(Font.SERIF,Font.BOLD,15);
     public void paintComponent(Graphics g){
@@ -61,8 +62,7 @@ public class UI extends JPanel{
     		ennemieCombat.setPos(new Point((this.getHeight()/2/Case.size),this.getWidth()/Case.size-1));
     		ennemieCombat.dessine(g2);
     		ennemieCombat.setPos(pos);
-    		Image diceImage = Toolkit.getDefaultToolkit().getImage("img/dice.png");
-    		g2.drawImage(diceImage,this.getWidth()/2-80,this.getHeight()/2-80,null,null);
+    		g2.drawImage(combat.deImage(),this.getWidth()/2-80,this.getHeight()/2-80,null);
     		
     		
     	}

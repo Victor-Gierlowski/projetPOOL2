@@ -1,6 +1,6 @@
 package projet_exploration.Entity;
 
-import Evenements.Combat;
+import Evenements.CombatEvenement;
 import Evenements.MouvementMonstre;
 import projet_exploration.App.Evenement;
 import projet_exploration.App.Game;
@@ -38,7 +38,7 @@ public class Monstre extends Personnage {
 	
 	public Evenement action(Game jeu,CasePerso caller) {
 		if(jeu.affichage.joueur.getPos().distance(caller.getPos()) < 2)
-			return new Combat(caller);
+			return new CombatEvenement(caller);
 		else
 			return new MouvementMonstre(caller);
 	}
