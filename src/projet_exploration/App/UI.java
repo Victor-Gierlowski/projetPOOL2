@@ -45,7 +45,7 @@ public class UI extends JPanel{
     		String info = "Appuie sur k pour lancer le dé !";
     		String viejoueur=String.valueOf(this.joueur.p.pv);
     		String viemonstre=String.valueOf(this.ennemieCombat.p.pv);
-    		String lastAction=combat.lancerDe();
+    		String lastAction=combat.resultatDe.toString();
     		
     		g2.setColor(Color.gray);
     		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
