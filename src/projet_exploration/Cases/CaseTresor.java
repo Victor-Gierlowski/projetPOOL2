@@ -15,7 +15,7 @@ public class CaseTresor extends Case {
 
 	public CaseTresor(int _x, int _y, List<Integer> args) {
 		super(_x, _y, args);
-		this.img = new ImageIcon("img/tresor.png").getImage();
+		this.img = new ImageIcon("img/piece.gif").getImage();
 		this.movable = true;
 	}
 
@@ -23,7 +23,7 @@ public class CaseTresor extends Case {
 
 	
 	public void dessine(Graphics2D g) {
-		g.drawImage(this.img, this.y*size, this.x*size,size,size,null);
+		g.drawImage(this.img, this.y*size, this.x*size,size,size,this);
 	}
 
 	@Override

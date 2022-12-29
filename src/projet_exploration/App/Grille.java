@@ -89,8 +89,8 @@ public class Grille {
 		return this.map.length;
 	}
 	public boolean isMovable(Point pos) {
-		if(pos.x < 0 || pos.x > this.getWidth()
-		|| pos.y < 0 || pos.y > this.getHeight()) return false;
+		if(pos.x < 0 || pos.x >= this.getWidth()
+		|| pos.y < 0 || pos.y >= this.getHeight()) return false;
 		return (map[pos.x][pos.y].isMovable());
 	}
 }

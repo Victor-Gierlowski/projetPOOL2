@@ -8,16 +8,19 @@ import projet_exploration.App.Evenement;
 import projet_exploration.Entity.Personnage;
 
 public class CasePerso extends Case { //j ai add public ici
-    public int pv=1;
-    private Personnage p;
+    public Personnage p;
 
     public CasePerso(int _x, int _y, Personnage _p) {
         super(_x, _y,null);
         this.p = _p;
-        this.img = new ImageIcon("img/personnage1.png").getImage();
+        this.img = new ImageIcon(_p.getIcon()).getImage();
+    }
+    
+    public CasePerso(Point p, Personnage _p) {
+    	this(p.x,p.y,_p);
     }
 
-    public String toString() { return String.format("F"); }
+	public String toString() { return String.format("F"); }
 
     // @Override
     // public void paintComponent(Graphics g) {

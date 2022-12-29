@@ -18,7 +18,8 @@ public class traverser extends Evenement {
 		CasePorte c = (CasePorte)caller;
 		master.frame.G = master.levels.get(c.niveauCible);
 		master.affichage.G = master.frame.G;
-		master.affichage.Persos.get(0).setPos(master.jsonLevels.get(c.niveauCible).getPorte(c.porteCible));
+		master.affichage.joueur.setPos(master.jsonLevels.get(c.niveauCible).getPorte(c.porteCible));
+		master.affichage.Persos = master.jsonLevels.get(c.niveauCible).monstres;
 	}
 
 }

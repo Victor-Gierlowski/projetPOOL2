@@ -37,6 +37,8 @@ public class CasePorte extends Case {
 	@Override
 	public Evenement playerOnCase() {
 		// TODO Auto-generated method stub
-		return new traverser(this);
+		if(this.niveauCible >= 0)
+			return new traverser(this);
+		return null;
 	}
 }

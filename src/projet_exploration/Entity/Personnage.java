@@ -1,6 +1,6 @@
 package projet_exploration.Entity;
 
-public class Personnage {
+public abstract class Personnage {
 	public int pv;
 	public int pa;
 	public int degats;
@@ -15,11 +15,13 @@ public class Personnage {
 		return "O";
 	}
 	
+	public abstract String getIcon();
+	
 	// Le perso A attaque le perso B
 	// retourne 1 si la cible meurt avec l'attaque.
 	public static int attaque(Personnage A, Personnage B) {
 		if(A instanceof Joueur && B instanceof Monstre) {
-			B.pv -=(int) (Math.sqrt(((Monstre) B).type)*A.degats);
+			B.pv -=A.degats;
 		}
 		else
 			B.pv -= A.degats;

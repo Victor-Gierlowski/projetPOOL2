@@ -3,7 +3,7 @@ package projet_exploration.App;
 import projet_exploration.App.json.fileLevelJSONObject;
 import projet_exploration.App.json.levelJSONObject;
 import projet_exploration.Cases.*;
-import projet_exploration.Entity.Joueur;
+import projet_exploration.Entity.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -19,12 +19,13 @@ import java.io.FileReader;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Game {
+public class Game  implements Runnable{
 		public Fenetre frame;
 		public List<Grille> levels;
 		public UI affichage;
-		
+		public fileLevelJSONObject jsonMaster;
 		public List<levelJSONObject> jsonLevels;
+		public Joueur joueur;
 	public void start(String[] args) {
 		affichage = new UI();
 		frame = new Fenetre("notre jeu",this);
@@ -37,9 +38,14 @@ public class Game {
 
         ImageIcon perso = new ImageIcon("./img/personnage1.png");
         Point s = jsonLevels.get(0).getSpawn();
-        CasePerso joueur = new CasePerso(s.x,s.y, new Joueur(s.x, s.y));
+        this.joueur = new Joueur(jsonMaster.health,jsonMaster.degats);
+        CasePerso joueur = new CasePerso(s.x, s.y, ((Personnage)this.joueur));
         affichage.Persos = new ArrayList<CasePerso>();
-        affichage.Persos.add(joueur);
+        for(CasePerso m : affichage.Persos) {
+        	affichage.G.map[m.x][m.y].movable =false;
+        }
+        affichage.joueur = joueur;
+        affichage.Persos = jsonLevels.get(0).monstres;
         frame.joueur = (Joueur) joueur.getP();
         frame.add(affichage);
         frame.affichage = affichage;
@@ -64,7 +70,7 @@ public class Game {
         
 		
 		frame.setVisible(true);
-
+		this.run();
 	}
 	
 	public void loadLevelFromJSON(String filename) {
@@ -72,18 +78,27 @@ public class Game {
 		Grille G = new Grille();
 		try {
 			JsonReader reader = new JsonReader(new FileReader(filename));
-			fileLevelJSONObject file = gson.fromJson(reader, fileLevelJSONObject.class);
-			if(file == null) return;
+			jsonMaster = gson.fromJson(reader, fileLevelJSONObject.class);
+			if(jsonMaster == null) return;
 			this.jsonLevels = new ArrayList<levelJSONObject>();
 			this.levels = new ArrayList<Grille>();
-			for(levelJSONObject level : file.room) {
+			for(levelJSONObject level : jsonMaster.room) {
 				level.setupPortes();
+				level.setupMonstre();
 				this.jsonLevels.add(level);
 				this.levels.add(Grille.fromArray(level.map));
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(this.frame.isShowing()) {
+			this.affichage.repaint();
 		}
 	}
 

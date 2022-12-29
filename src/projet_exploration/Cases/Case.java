@@ -12,7 +12,7 @@ public abstract class Case extends JPanel {
 	public int x;
 	public int y;
 	public Image img;
-	protected boolean movable =false;
+	public boolean movable =false;
 	public static int size = 160;
 	public static final int VIDE = 2;
 	public static final int MUR = 1;
@@ -25,6 +25,11 @@ public abstract class Case extends JPanel {
 		this.x=_x;
 		this.y=_y;
 		setPreferredSize(new Dimension(160, 160));
+	}
+	
+	protected Case(Point p,List<Integer> args) {
+		this.x = p.x;
+		this.y = p.y;
 	}
 	
 	public void setPos(Point p) {
