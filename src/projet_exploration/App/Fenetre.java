@@ -16,6 +16,7 @@ public class Fenetre extends JFrame implements KeyListener{
 	public Grille G;
 	public UI affichage;
 	public Joueur joueur;
+	// public Monstre ennemieCombat; truc qui marche pas meme si tu met joueur 
 	public JPanel panel;  
 	public Game master;
 
@@ -96,21 +97,26 @@ public class Fenetre extends JFrame implements KeyListener{
 			    switch (randomNumber) {
 			      case 1:
 			        System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
+			        this.joueur.pv-=3;
 			        break;
 			      case 2:
 			        System.out.println("2: L'ennemi vous frappe au tibia!");
+			        this.joueur.pv-=2;
 			        break;
 			      case 3:
-			        System.out.println("3: L'ennemi vous blesse!");
+			        System.out.println("3: OUF! Tu esquive inextremis!");
 			        break;
 			      case 4:
 			        System.out.println("4: Touché! l'ennemi est atteint.");
+			        this.ennemieCombat.pv-=1;
 			        break;
 			      case 5:
 			        System.out.println("5: Tu frappe l'ennemi de toute tes forces.");
+			        this.ennemieCombat.pv-=3;
 			        break;
 			      case 6:
-			        System.out.println("6: Tu inflige un coup critique!!");
+			        System.out.println("6: Tu boit une potion");
+			        this.joueur.pv+=3;
 			        break;
 			      default:
 			        System.out.println("Erreur: nombre aléatoire inattendu");
