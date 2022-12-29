@@ -10,6 +10,8 @@ import projet_exploration.Entity.Monstre;
 
 public class Combat {
 	public Joueur joueur;
+	
+	
 	public Monstre ennemie;
 	
 	public Image img = new ImageIcon("img/dice.png").getImage();
