@@ -108,11 +108,11 @@ public class Fenetre extends JFrame implements KeyListener{
 			        break;
 			      case 4:
 			        System.out.println("4: Touché! l'ennemi est atteint.");
-			        this.ennemieCombat.pv-=1;
+			        this.affichage.ennemieCombat.p.pv-=1;
 			        break;
 			      case 5:
 			        System.out.println("5: Tu frappe l'ennemi de toute tes forces.");
-			        this.ennemieCombat.pv-=3;
+			        this.affichage.ennemieCombat.p.pv-=3;
 			        break;
 			      case 6:
 			        System.out.println("6: Tu boit une potion");
