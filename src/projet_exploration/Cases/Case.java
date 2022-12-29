@@ -13,7 +13,7 @@ public abstract class Case extends JPanel {
 	public int y;
 	public Image img;
 	public boolean movable =false;
-	public static int size = 160;
+	public static int size = 80;
 	public static final int VIDE = 2;
 	public static final int MUR = 1;
 	public static final int PERSO = 3;

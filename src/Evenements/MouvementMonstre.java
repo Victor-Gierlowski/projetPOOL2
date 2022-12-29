@@ -20,6 +20,8 @@ public class MouvementMonstre extends Evenement {
 		int dy = master.affichage.joueur.y-caller.y;
 		if(Math.abs(dx) > 1) dx = dx/Math.abs(dx);
 		if(Math.abs(dy) > 1) dy = dy/Math.abs(dy);
+		if(dx !=0 && dy !=0 && Math.random() >0.5) dx = 0;
+		else dy = 0;
 		Point pos = new Point(dx+this.caller.x,dy+this.caller.y);
 		if(master.affichage.G.isMovable(pos)) {
 			master.affichage.G.map[caller.x][caller.y].movable = true;

@@ -26,6 +26,8 @@ public class Game  implements Runnable{
 		public fileLevelJSONObject jsonMaster;
 		public List<levelJSONObject> jsonLevels;
 		public Joueur joueur;
+		
+		private long lastFrame = 0;
 	public void start(String[] args) {
 		affichage = new UI();
 		frame = new Fenetre("notre jeu",this);
@@ -98,7 +100,12 @@ public class Game  implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		while(this.frame.isShowing()) {
-			this.affichage.repaint();
+			// 1s => 1000ms
+			// 1000ms / 30 img=> 33ms / img
+			if(System.currentTimeMillis()-lastFrame>=33) {
+				this.affichage.repaint();
+				lastFrame = System.currentTimeMillis();
+			}
 		}
 	}
 

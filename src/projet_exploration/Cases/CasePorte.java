@@ -19,12 +19,13 @@ public class CasePorte extends Case {
 		if(args == null || args.size() != 3) {
 			niveauCible = -1;
 			porteCible = -1;
+			this.img = new ImageIcon("img/porteclose.png").getImage();
 		}
 		else {
 			niveauCible = args.get(1);
 			porteCible = args.get(2);
+			this.img = new ImageIcon("img/porte.png").getImage();
 		}
-		this.img = new ImageIcon("img/porte.png").getImage();
 		this.movable = true;
 	}
 

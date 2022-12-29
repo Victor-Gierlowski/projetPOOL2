@@ -17,6 +17,7 @@ public class Fenetre extends JFrame implements KeyListener{
     public Joueur joueur;
     public JPanel panel;  
     public Game master;
+    
  
     public Fenetre(String str, Game m){
         super(str);
@@ -37,6 +38,9 @@ public class Fenetre extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent arg0) {
+    	
+    	if(!affichage.modeCombat) {
+    		
     	boolean didS = false;
     	Point jPos = affichage.joueur.getPos();
     	switch(arg0.getKeyChar()) {
@@ -80,6 +84,7 @@ public class Fenetre extends JFrame implements KeyListener{
     			if(E != null)
     				E.action(master);
     		}
+    	}
     	}
         affichage.repaint();
     }
