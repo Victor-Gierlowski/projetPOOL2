@@ -45,6 +45,7 @@ public class UI extends JPanel{
     		String info = "Appuie sur k pour lancer le dé !";
     		String viejoueur=String.valueOf(this.joueur.p.pv);
     		String viemonstre=String.valueOf(this.ennemieCombat.p.pv);
+    		String lastAction=combat.lancerDe();
     		
     		g2.setColor(Color.gray);
     		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -54,6 +55,7 @@ public class UI extends JPanel{
     		g2.drawString(info, this.getWidth()/2-info.length()*15/2,60);
     		g2.drawString(viejoueur,0,this.getHeight()/2-100);
     		g2.drawString(viemonstre,this.getWidth()-100, this.getHeight()/2-100);
+    		g2.drawString(lastAction,this.getWidth()/2-100,this.getHeight()/2-100);
     		Point pos = (Point) joueur.getPos().clone();
     		joueur.setPos(new Point((this.getHeight()/2/Case.size),0));
     		joueur.dessine(g2);

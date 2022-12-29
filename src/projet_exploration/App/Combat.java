@@ -12,8 +12,9 @@ public class Combat {
 	public Joueur joueur;
 	public Monstre ennemie;
 	
-	public Image img = new ImageIcon("img/de.gif").getImage();
+	public Image img = new ImageIcon("img/dice.png").getImage();
 	public Integer resultatDe = 0;
+	public String str;
 	
 	
 	public Combat(Joueur j, Monstre m) {
@@ -30,42 +31,44 @@ public class Combat {
 	
 	public Image deImage() {
 		String s = getResultatDe();
-		System.out.println(s);
+		//System.out.println(s);
 		if(s!= null) return new ImageIcon(s).getImage();
 		return this.img;
 	}
-	public void lancerDe() {
+	public String lancerDe() {
 		Random random = new Random();
 	    int randomNumber = random.nextInt(6) + 1;
 	    resultatDe = randomNumber;
 	    switch (randomNumber) {
 	      case 1:
-	        System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
+	        //System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
 	        this.joueur.pv-=3;
+	        str="1: OUCH!! L'ennemi vous infligent un coup critique!!";
 	        break;
 	      case 2:
-	        System.out.println("2: L'ennemi vous frappe au tibia!");
+	        str="2: L'ennemi vous frappe au tibia!";
 	        this.joueur.pv-=2;
 	        break;
 	      case 3:
-	        System.out.println("3: OUF! Tu esquive inextremis!");
+	        str="3: OUF! Tu esquive inextremis!";
 	        break;
 	      case 4:
-	        System.out.println("4: Touché! l'ennemi est atteint.");
+	        str="4: Touché! l'ennemi est atteint.";
 	        ennemie.pv-=1;
 	        break;
 	      case 5:
-	        System.out.println("5: Tu frappe l'ennemi de toute tes forces.");
+	        str="5: Tu frappe l'ennemi de toute tes forces.";
 	        ennemie.pv-=3;
 	        break;
 	      case 6:
-	        System.out.println("6: Tu boit une potion");
+	        str="6: Tu boit une potion";
 	        this.joueur.pv+=3;
 	        break;
 	      default:
-	        System.out.println("Erreur: nombre aléatoire inattendu");
+	        str="Erreur: nombre aléatoire inattendu";
 	        break;
 	    }
 	    
+	    return str;
 	}
 }
