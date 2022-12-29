@@ -5,6 +5,8 @@ import projet_exploration.Entity.Joueur;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -39,11 +41,13 @@ public class UI extends JPanel{
     	}
     	else {
     		String cmbt = "COMBAT !";
-    		g2.setColor(Color.black);
+    		String info = "Appuie sur k pour lancer le dé !";
+    		g2.setColor(Color.gray);
     		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
     		g2.setFont(f);
     		g2.setColor(Color.white);
     		g2.drawString(cmbt, this.getWidth()/2-cmbt.length()*15/2,20);
+    		g2.drawString(info, this.getWidth()/2-cmbt.length()*40/2,100);
     		Point pos = (Point) joueur.getPos().clone();
     		joueur.setPos(new Point((this.getHeight()/2/Case.size),0));
     		joueur.dessine(g2);
@@ -52,6 +56,10 @@ public class UI extends JPanel{
     		ennemieCombat.setPos(new Point((this.getHeight()/2/Case.size),this.getWidth()/Case.size-1));
     		ennemieCombat.dessine(g2);
     		ennemieCombat.setPos(pos);
+    		Image diceImage = Toolkit.getDefaultToolkit().getImage("img/dice.png");
+    		g2.drawImage(diceImage,this.getWidth()/2, 160,null,null);
+    		//String viejoueur=joueur.getIcon();
+    		
     	}
     }
     

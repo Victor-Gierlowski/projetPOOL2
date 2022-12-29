@@ -31,8 +31,8 @@ public class Game  implements Runnable{
 	public void start(String[] args) {
 		affichage = new UI();
 		frame = new Fenetre("notre jeu",this);
-        frame.setSize(800,800);
-        frame.setLocation(300,300);
+        frame.setSize(1000,800);
+        frame.setLocation(200,200);
         //frame.G = Grille.fromTxt("level1.txt");
         this.loadLevelFromJSON("levels/level1.json");
         frame.G = levels.get(0);

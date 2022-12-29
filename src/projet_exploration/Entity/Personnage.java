@@ -3,6 +3,7 @@ package projet_exploration.Entity;
 public abstract class Personnage {
 	public int pv;
 	public int pa;
+	public int pvmax;
 	public int degats;
 	
 	public Personnage(int pv,int pa) {
