@@ -60,6 +60,7 @@ public class Combat {
 	        this.joueur.pv-=3;
 	        str="1: OUCH!! L'ennemi vous infligent un coup critique!!";
 	        if (testMort(joueur)==1) {
+	        	str="GAME OVER LOOSER!!";
 	        	//AFFICHE GAME OVER
 	        }
 	        break;
@@ -67,6 +68,7 @@ public class Combat {
 	        str="2: L'ennemi vous frappe au tibia!";
 	        this.joueur.pv-=2;
 	        if (testMort(joueur)==1) {
+	        	str="GAME OVER LOOSER!!";
 	        	//AFFICHE GAME OVER
 	        }
 	        break;
