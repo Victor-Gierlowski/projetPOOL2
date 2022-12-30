@@ -19,7 +19,7 @@ public class CombatEvenement extends Evenement {
 		// TODO Auto-generated method stub
 		master.affichage.modeCombat =true;
 		master.affichage.ennemieCombat = (CasePerso)caller;
-		master.affichage.combat = new Combat(master.joueur,(Monstre)((CasePerso)caller).p);
+		master.affichage.combat = new Combat(master.joueur,(Monstre)((CasePerso)caller).p, master.affichage);
 	}
 
 }
