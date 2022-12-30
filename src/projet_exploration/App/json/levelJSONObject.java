@@ -25,6 +25,7 @@ public class levelJSONObject {
 	}
 	
 	public void setupPortes() {
+		if(this.portes == null);
 		this.portes = new ArrayList();
 		for(int i=0;i<map.size();i++) {
 			for(int j=0;j<map.get(0).size();j++) {

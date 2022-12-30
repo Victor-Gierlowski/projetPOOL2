@@ -41,8 +41,16 @@ public class Fenetre extends JFrame implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 
-		if(!affichage.modeCombat) {
-
+		if(!affichage.modeCombat && System.currentTimeMillis()-affichage.finCombatTime >4000) {
+			if(affichage.ennemieCombat != null) {
+					affichage.G.map[affichage.ennemieCombat.x][affichage.ennemieCombat.y].movable = true;
+					affichage.Persos.remove(affichage.ennemieCombat);
+					affichage.ennemieCombat = null;
+					((Joueur)affichage.joueur.p).totaltue++;
+					if(((Joueur)affichage.joueur.p).totaltue == master.jsonMaster.totalMechant)
+						System.out.println("fin");
+						// TU FAIS LA FIN ICI;
+			}
 			boolean didS = false;
 			Point jPos = affichage.joueur.getPos();
 			switch(arg0.getKeyChar()) {
@@ -87,8 +95,9 @@ public class Fenetre extends JFrame implements KeyListener{
 						E.action(master);
 				}
 			}
+			affichage.repaint();
 		}
-		else {
+		else if(affichage.modeCombat){
 			switch(arg0.getKeyChar()) {
 			case 'k':
 				this.affichage.combat.lancerDe();
@@ -96,7 +105,6 @@ public class Fenetre extends JFrame implements KeyListener{
 			}
 		}
 
-		affichage.repaint();
 	}
 
 

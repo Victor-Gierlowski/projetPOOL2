@@ -1,5 +1,8 @@
 package projet_exploration.Entity;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 import Evenements.CombatEvenement;
 import Evenements.MouvementMonstre;
 import projet_exploration.App.Evenement;
@@ -41,6 +44,25 @@ public class Monstre extends Personnage {
 			return new CombatEvenement(caller);
 		else
 			return new MouvementMonstre(caller);
+	}
+
+	@Override
+	public Image getMort() {
+		// TODO Auto-generated method stub
+		String s ;
+		switch(type) {
+		case 1 :
+			s = "img/slime_mort.gif";
+			break;
+		case 2:
+			s = "img/fantome_mort.gif";
+			break;
+		default:
+			s = "img/slime_mort.gif";
+			break;
+		};
+		return new ImageIcon(s).getImage();
+		
 	}
 	
 

@@ -2,6 +2,7 @@ package projet_exploration.App;
 
 import projet_exploration.App.json.fileLevelJSONObject;
 import projet_exploration.App.json.levelJSONObject;
+import projet_exploration.App.wfc.Generator;
 import projet_exploration.Cases.*;
 import projet_exploration.Entity.*;
 
@@ -16,6 +17,7 @@ import com.google.gson.stream.JsonReader;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -28,7 +30,7 @@ public class Game  implements Runnable{
 		public Joueur joueur;
 		
 		private long lastFrame = 0;
-	public void start(String[] args) {
+	public void start(String level) {
 		//Définie l'objet affichage qui gère l'interface
 		affichage = new UI();
 		// La fenetre
@@ -40,7 +42,15 @@ public class Game  implements Runnable{
         
         
         //Ici on lis un fichier json qui contient des salles contigue
-        this.loadLevelFromJSON("levels/level1.json");
+        if(level.length() == 0)
+			try {
+				level = new Generator().generate();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        System.out.println(level);
+        this.loadLevelFromJSON(level);
         //On définit la grille de travail et d'affichage sur celle 
         //du premier niveau
         frame.G = levels.get(0);
@@ -105,6 +115,7 @@ public class Game  implements Runnable{
 		try {
 			JsonReader reader = new JsonReader(new FileReader(filename));
 			jsonMaster = gson.fromJson(reader, fileLevelJSONObject.class);
+			reader.close();
 			if(jsonMaster == null) return;
 			this.jsonLevels = new ArrayList<levelJSONObject>();
 			this.levels = new ArrayList<Grille>();
@@ -114,7 +125,7 @@ public class Game  implements Runnable{
 				this.jsonLevels.add(level);
 				this.levels.add(Grille.fromArray(level.map));
 			}
-		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

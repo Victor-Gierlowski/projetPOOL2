@@ -24,6 +24,7 @@ public class UI extends JPanel{
     public boolean modeCombat = false;
     public Combat combat;
     
+    public long finCombatTime = 0;
     private Font f = new Font(Font.SERIF,Font.BOLD,15);
     public void paintComponent(Graphics g){
     	Graphics2D g2 = (Graphics2D)g;

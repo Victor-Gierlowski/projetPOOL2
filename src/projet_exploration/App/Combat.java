@@ -15,8 +15,8 @@ public class Combat {
 	public Joueur joueur;
 	public Monstre ennemie;
 	
-	public Image img = new ImageIcon("img/dice.png").getImage();
-	public Image imgmort = new ImageIcon("img/slime_mort.gif").getImage();
+	public Image img;// = new ImageIcon("img/dice.png").getImage();
+	public Image imgmort;// = new ImageIcon("img/slime_mort.gif").getImage();
 	public Integer resultatDe = 0;
 	public String str="";
 	
@@ -25,6 +25,8 @@ public class Combat {
 		joueur = j;
 		ennemie = m;
 		affichage= a;
+		//img = new ImageIcon(ennemie.getIcon()).getImage();
+		imgmort = ennemie.getMort();
 	}
 	
 	public String getResultatDe() {
@@ -82,6 +84,7 @@ public class Combat {
 	        if (testMort(ennemie)==1) {
 	        	affichage.ennemieCombat.img=imgmort;
 	        	affichage.modeCombat=false;
+	        	affichage.finCombatTime = System.currentTimeMillis();
 	        }
 	        break;
 	      case 5:

@@ -1,4 +1,5 @@
 package projet_exploration.Entity;
+import java.awt.Image;
 
 public abstract class Personnage {
 	public int pv;
@@ -15,6 +16,8 @@ public abstract class Personnage {
 	public String toString() {
 		return "O";
 	}
+	
+	public abstract Image getMort();
 	
 	public abstract String getIcon();
 	
