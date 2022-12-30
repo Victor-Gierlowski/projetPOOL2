@@ -31,10 +31,13 @@ public class Game  implements Runnable{
 
 	private long lastFrame = 0;
 	public void start(String level) {
+		
+		
 		//Définie l'objet affichage qui gère l'interface
 		affichage = new UI();
 		// La fenetre
 		frame = new Fenetre("notre jeu",this);
+		
 		//Définit la taille de notre fenetre et sa position d'apparition
 		frame.setSize(1000,800);
 		frame.setLocation(200,200);
@@ -53,7 +56,6 @@ public class Game  implements Runnable{
 	}
 	
 	public void load(String level) {
-		
 		
 		
 		System.out.println(level);
