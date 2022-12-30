@@ -24,9 +24,13 @@ public class UI extends JPanel{
     public boolean modeCombat = false;
     public Combat combat;
     public String str;
+    public String texte="";
+    public String points="";
+    public String tue="";
     
     public long finCombatTime = 0;
     private Font f = new Font(Font.SERIF,Font.BOLD,15);
+    private Font f2 = new Font(Font.SERIF,Font.BOLD,30);
     public void paintComponent(Graphics g){
     	Graphics2D g2 = (Graphics2D)g;
     	if(!modeCombat) {
@@ -42,6 +46,8 @@ public class UI extends JPanel{
         }
         joueur.dessine((Graphics2D)g);
     	}
+    
+    	
     	else {
     		String cmbt = "COMBAT !";
     		String info = "Appuie sur k pour lancer le dé !";
@@ -70,11 +76,12 @@ public class UI extends JPanel{
     		
     		
     	}
+    	
+    	g2.setFont(f2);
+    	g2.drawString(texte, this.getWidth()/2+100-texte.length()*15/2,50);
+    	g2.drawString(points, this.getWidth()/2+100-texte.length()*15/2,100);
+    	g2.drawString(tue, this.getWidth()/2+100-texte.length()*15/2,150);
     }
-    public void message(String str) {
-    	this.str=str;
-    	g2.setColor(Color.white);
-		g2.drawString(cmbt, this.getWidth()/2-cmbt.length()*15/2,20);
-    }
+    	
+  }
     
-}
