@@ -15,7 +15,7 @@ public class CaseTresor extends Case {
 
 	public CaseTresor(int _x, int _y, List<Integer> args) {
 		super(_x, _y, args);
-		this.img = new ImageIcon("img/piece.gif").getImage();
+		this.img = new ImageIcon("img/tresor.png").getImage();
 		this.movable = true;
 	}
 

@@ -69,6 +69,7 @@ public class Combat {
 	        this.joueur.pv-=2;
 	        if (testMort(joueur)==1) {
 	        	str="GAME OVER LOOSER!!";
+	        	
 	        	//AFFICHE GAME OVER
 	        }
 	        break;
