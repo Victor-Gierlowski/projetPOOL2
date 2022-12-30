@@ -9,19 +9,21 @@ import projet_exploration.Entity.Joueur;
 import projet_exploration.Entity.Monstre;
 
 public class Combat {
+	
+	public UI affichage;
 	public Joueur joueur;
-	
-	
 	public Monstre ennemie;
 	
 	public Image img = new ImageIcon("img/dice.png").getImage();
+	public Image imgmort = new ImageIcon("img/slime_mort.gif").getImage();
 	public Integer resultatDe = 0;
-	public String str;
+	public String str="";
 	
 	
-	public Combat(Joueur j, Monstre m) {
+	public Combat(Joueur j, Monstre m,UI a) {
 		joueur = j;
 		ennemie = m;
+		affichage= a;
 	}
 	
 	public String getResultatDe() {
@@ -36,6 +38,16 @@ public class Combat {
 		//System.out.println(s);
 		if(s!= null) return new ImageIcon(s).getImage();
 		return this.img;
+	}
+	public String deString() {
+		return this.str;
+	}
+	
+	public int testMort() {
+		if (ennemie.pv<=0) {
+			return 1;
+		}
+		else return 0;
 	}
 	public String lancerDe() {
 		Random random = new Random();
@@ -57,10 +69,16 @@ public class Combat {
 	      case 4:
 	        str="4: Touché! l'ennemi est atteint.";
 	        ennemie.pv-=1;
+	        if (testMort()==1) {
+	        	affichage.ennemieCombat.img=imgmort;
+	        }
 	        break;
 	      case 5:
 	        str="5: Tu frappe l'ennemi de toute tes forces.";
 	        ennemie.pv-=3;
+	        if (testMort()==1) {
+	        	affichage.ennemieCombat.img=imgmort;
+	        }
 	        break;
 	      case 6:
 	        str="6: Tu boit une potion";
