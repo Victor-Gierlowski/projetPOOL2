@@ -23,6 +23,7 @@ public class UI extends JPanel{
     public CasePerso ennemieCombat;
     public boolean modeCombat = false;
     public Combat combat;
+    public String str;
     
     public long finCombatTime = 0;
     private Font f = new Font(Font.SERIF,Font.BOLD,15);
@@ -69,6 +70,11 @@ public class UI extends JPanel{
     		
     		
     	}
+    }
+    public void message(String str) {
+    	this.str=str;
+    	g2.setColor(Color.white);
+		g2.drawString(cmbt, this.getWidth()/2-cmbt.length()*15/2,20);
     }
     
 }

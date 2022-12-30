@@ -15,7 +15,7 @@ public class Combat {
 	public Joueur joueur;
 	public Monstre ennemie;
 
-	public Image img;// = new ImageIcon("img/dice.png").getImage();
+	public Image img = new ImageIcon("img/dice.png").getImage();
 	public Image imgmort;// = new ImageIcon("img/slime_mort.gif").getImage();
 	public Integer resultatDe = 0;
 	public String str="";
@@ -85,8 +85,10 @@ public class Combat {
 				ennemie.pv-=this.joueur.pa;
 				if (testMort(ennemie)==1) {
 					affichage.ennemieCombat.img=imgmort;
+					this.joueur.pa+=1;
+					this.joueur.totaltue++;
+					//affichage.finCombatTime = System.currentTimeMillis();
 					affichage.modeCombat=false;
-					affichage.finCombatTime = System.currentTimeMillis();
 				}
 				break;
 			case 5:
@@ -94,6 +96,8 @@ public class Combat {
 				ennemie.pv-=this.joueur.pa*2;
 				if (testMort(ennemie)==1) {
 					affichage.ennemieCombat.img=imgmort;
+					this.joueur.pa+=1;
+					this.joueur.totaltue++;
 					affichage.modeCombat=false;
 				}
 				break;
