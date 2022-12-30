@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 import projet_exploration.Entity.Joueur;
 import projet_exploration.Entity.Monstre;
+import projet_exploration.Entity.Personnage;
 
 public class Combat {
 	
@@ -43,8 +44,8 @@ public class Combat {
 		return this.str;
 	}
 	
-	public int testMort() {
-		if (ennemie.pv<=0) {
+	public int testMort(Personnage P) {
+		if (P.pv<=0) {
 			return 1;
 		}
 		else return 0;
@@ -58,10 +59,16 @@ public class Combat {
 	        //System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
 	        this.joueur.pv-=3;
 	        str="1: OUCH!! L'ennemi vous infligent un coup critique!!";
+	        if (testMort(joueur)==1) {
+	        	//AFFICHE GAME OVER
+	        }
 	        break;
 	      case 2:
 	        str="2: L'ennemi vous frappe au tibia!";
 	        this.joueur.pv-=2;
+	        if (testMort(joueur)==1) {
+	        	//AFFICHE GAME OVER
+	        }
 	        break;
 	      case 3:
 	        str="3: OUF! Tu esquive inextremis!";
@@ -69,15 +76,17 @@ public class Combat {
 	      case 4:
 	        str="4: Touché! l'ennemi est atteint.";
 	        ennemie.pv-=1;
-	        if (testMort()==1) {
+	        if (testMort(ennemie)==1) {
 	        	affichage.ennemieCombat.img=imgmort;
+	        	affichage.modeCombat=false;
 	        }
 	        break;
 	      case 5:
 	        str="5: Tu frappe l'ennemi de toute tes forces.";
 	        ennemie.pv-=3;
-	        if (testMort()==1) {
+	        if (testMort(ennemie)==1) {
 	        	affichage.ennemieCombat.img=imgmort;
+	        	affichage.modeCombat=false;
 	        }
 	        break;
 	      case 6:
