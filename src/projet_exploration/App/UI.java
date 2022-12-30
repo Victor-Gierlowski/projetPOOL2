@@ -81,6 +81,8 @@ public class UI extends JPanel{
     	g2.drawString(texte, this.getWidth()/2+100-texte.length()*15/2,50);
     	g2.drawString(points, this.getWidth()/2+100-texte.length()*15/2,100);
     	g2.drawString(tue, this.getWidth()/2+100-texte.length()*15/2,150);
+    	
+  
     }
     	
   }

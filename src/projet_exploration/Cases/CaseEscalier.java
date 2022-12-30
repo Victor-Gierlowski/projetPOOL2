@@ -31,5 +31,8 @@ public class CaseEscalier extends Case{
 		
 		return new nextLevel(this);
 	}
+	public void stopmove() {
+		this.movable=false;
+	}
 }
 
