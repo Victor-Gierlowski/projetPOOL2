@@ -19,6 +19,7 @@ public abstract class Case extends JPanel {
 	public static final int PERSO = 3;
 	public static final int TRESOR = 4;
 	public static final int PORTE = 5;
+	public static final int ESCALIER = 6;
 
 	protected Case(int _x, int _y,List<Integer> args) {
 		super();
@@ -57,6 +58,8 @@ public abstract class Case extends JPanel {
 			return new CaseTresor( _x, _y, args);
 		else if(TYPE==PORTE)
 			return new CasePorte(_x, _y, args);
+		else if(TYPE==ESCALIER)
+			return new CaseEscalier(_x, _y, args);
 		else return new CaseVide(_x, _y, args);
 	}
 

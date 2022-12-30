@@ -10,17 +10,17 @@ import projet_exploration.Entity.Monstre;
 import projet_exploration.Entity.Personnage;
 
 public class Combat {
-	
+
 	public UI affichage;
 	public Joueur joueur;
 	public Monstre ennemie;
-	
+
 	public Image img;// = new ImageIcon("img/dice.png").getImage();
 	public Image imgmort;// = new ImageIcon("img/slime_mort.gif").getImage();
 	public Integer resultatDe = 0;
 	public String str="";
-	
-	
+
+
 	public Combat(Joueur j, Monstre m,UI a) {
 		joueur = j;
 		ennemie = m;
@@ -28,14 +28,14 @@ public class Combat {
 		//img = new ImageIcon(ennemie.getIcon()).getImage();
 		imgmort = ennemie.getMort();
 	}
-	
+
 	public String getResultatDe() {
 		if(resultatDe != 0 && resultatDe>0 && resultatDe <=6) {
 			return String.format("img/de%d.png", resultatDe);
 		}
 		return null;
 	}
-	
+
 	public Image deImage() {
 		String s = getResultatDe();
 		//System.out.println(s);
@@ -45,7 +45,7 @@ public class Combat {
 	public String deString() {
 		return this.str;
 	}
-	
+
 	public int testMort(Personnage P) {
 		if (P.pv<=0) {
 			return 1;
@@ -54,56 +54,59 @@ public class Combat {
 	}
 	public String lancerDe() {
 		Random random = new Random();
-	    int randomNumber = random.nextInt(6) + 1;
-	    resultatDe = randomNumber;
-	    switch (randomNumber) {
-	      case 1:
-	        //System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
-	        this.joueur.pv-=3;
-	        str="1: OUCH!! L'ennemi vous infligent un coup critique!!";
-	        if (testMort(joueur)==1) {
-	        	str="GAME OVER LOOSER!!";
-	        	//AFFICHE GAME OVER
-	        }
-	        break;
-	      case 2:
-	        str="2: L'ennemi vous frappe au tibia!";
-	        this.joueur.pv-=2;
-	        if (testMort(joueur)==1) {
-	        	str="GAME OVER LOOSER!!";
-	        	
-	        	//AFFICHE GAME OVER
-	        }
-	        break;
-	      case 3:
-	        str="3: OUF! Tu esquive inextremis!";
-	        break;
-	      case 4:
-	        str="4: Touché! l'ennemi est atteint.";
-	        ennemie.pv-=1;
-	        if (testMort(ennemie)==1) {
-	        	affichage.ennemieCombat.img=imgmort;
-	        	affichage.modeCombat=false;
-	        	affichage.finCombatTime = System.currentTimeMillis();
-	        }
-	        break;
-	      case 5:
-	        str="5: Tu frappe l'ennemi de toute tes forces.";
-	        ennemie.pv-=3;
-	        if (testMort(ennemie)==1) {
-	        	affichage.ennemieCombat.img=imgmort;
-	        	affichage.modeCombat=false;
-	        }
-	        break;
-	      case 6:
-	        str="6: Tu boit une potion";
-	        this.joueur.pv+=3;
-	        break;
-	      default:
-	        str="Erreur: nombre aléatoire inattendu";
-	        break;
-	    }
-	    
-	    return str;
+		int randomNumber = random.nextInt(6) + 1;
+		resultatDe = randomNumber;
+		if(testMort(ennemie)!=1 && testMort(joueur)!=1){
+
+			switch (randomNumber) {
+			case 1:
+				//System.out.println("1: OUCH!! L'ennemi vous infligent un coup critique!!");
+				this.joueur.pv-=ennemie.pa*3;
+				str="1: OUCH!! L'ennemi vous infligent un coup critique!!";
+				if (testMort(joueur)==1) {
+					str="GAME OVER LOOSER!!";
+					//AFFICHE GAME OVER
+				}
+				break;
+			case 2:
+				str="2: L'ennemi vous frappe au tibia!";
+				this.joueur.pv-=ennemie.pa*2;
+				if (testMort(joueur)==1) {
+					str="GAME OVER LOOSER!!";
+
+					//AFFICHE GAME OVER
+				}
+				break;
+			case 3:
+				str="3: OUF! Tu esquive inextremis!";
+				break;
+			case 4:
+				str="4: Touché! l'ennemi est atteint.";
+				ennemie.pv-=this.joueur.pa;
+				if (testMort(ennemie)==1) {
+					affichage.ennemieCombat.img=imgmort;
+					affichage.modeCombat=false;
+					affichage.finCombatTime = System.currentTimeMillis();
+				}
+				break;
+			case 5:
+				str="5: Tu frappe l'ennemi de toute tes forces.";
+				ennemie.pv-=this.joueur.pa*2;
+				if (testMort(ennemie)==1) {
+					affichage.ennemieCombat.img=imgmort;
+					affichage.modeCombat=false;
+				}
+				break;
+			case 6:
+				str="6: Tu boit une potion";
+				this.joueur.pv+=2;
+				break;
+			default:
+				str="Erreur: nombre aléatoire inattendu";
+				break;
+			}
+
+		}
+		return str;
 	}
 }

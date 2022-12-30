@@ -20,11 +20,11 @@ public class Monstre extends Personnage {
 		switch(type) {
 		case 1 : 
 			this.pa = 1;
-			this.pv = 3;
+			this.pv = 5;
 			break;
 		default:
 			this.pa = 1;
-			this.pv = 3;
+			this.pv = 5;
 		}
 	}
 	
